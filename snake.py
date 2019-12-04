@@ -41,7 +41,7 @@ def mainMenu():
 
 def paused():
 	text = font.render("Press Space to Resume", True, (0, 0, 255))
-	textRect.center = (winX // 3, winY // 3)
+	textRect.center = (winX // 2, winY // 3)
 	window.fill((0, 0, 0))
 	window.blit(text, textRect)
 	pygame.draw.rect(window, (255, 0, 0), (x, y, width, height))
@@ -77,23 +77,23 @@ itemX, itemY = generatePos(0, gridX, gridY), generatePos(1, gridX, gridY)
 alive = True
 mainMenu()
 while alive:
-	pygame.time.delay(50)
+	pygame.time.delay(80)
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
 			pygame.quit()
 
 	keys = pygame.key.get_pressed()
 
-	if keys[pygame.K_w]:
+	if keys[pygame.K_UP]:
 		up, down, left, right = 0, 0, 0, 0
 		up = -speed
-	if keys[pygame.K_a]:
+	if keys[pygame.K_LEFT]:
 		up, down, left, right = 0, 0, 0, 0
 		left = -speed
-	if keys[pygame.K_s]:
+	if keys[pygame.K_DOWN]:
 		up, down, left, right = 0, 0, 0, 0
 		down = speed
-	if keys[pygame.K_d]:
+	if keys[pygame.K_RIGHT]:
 		up, down, left, right = 0, 0, 0, 0
 		right = speed
 	if keys[pygame.K_p]:
@@ -152,6 +152,17 @@ while alive:
 	for each in head.body:
 		pygame.draw.rect(window, (255, 0, 0), (each[0], each[1], width, height))
 	pygame.display.update()
+
+# death
+text = font.render("You lose :(", True, (0, 0, 255))
+textRect.center = (winX // 3, winY // 3)
+window.fill((0, 0, 0))
+window.blit(text, textRect)
+pygame.draw.rect(window, (255, 0, 0), (x, y, width, height))
+for each in head.body:
+	pygame.draw.rect(window, (255, 0, 0), (each[0], each[1], width, height))
+pygame.draw.rect(window, (255, 208, 0), (itemX, itemY, width, height))
+pygame.display.update()
 
 pygame.quit()
 
