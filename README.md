@@ -4,6 +4,7 @@ A classic and all-time favorite, arcade snake!
 -----------------
 
 # Install Pygame
+If you have pip installed, type in command line `pip install pygame`
 [Download Pygame here](https://www.pygame.org/download.shtml)
 
 # How to Play
