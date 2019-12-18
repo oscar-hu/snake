@@ -3,7 +3,10 @@ A classic and all-time favorite, arcade snake!
 
 -----------------
 
-# Setup
+# Install Pygame
+[Download Pygame here](https://www.pygame.org/download.shtml)
+
+# How to Play
 On the command line,
 - `git clone https://github.com/oscar-hu/snake.git`
 - `cd snake`
